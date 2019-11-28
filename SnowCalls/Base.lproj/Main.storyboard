@@ -36,11 +36,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Convert"/>
+                                <connections>
+                                    <action selector="analyzeText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aOB-9R-K9z"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="inputField" destination="v56-X8-Dga" id="bjk-sR-HkB"/>
+                        <outlet property="outputReselt" destination="Ma2-oY-AL5" id="JZK-Ew-6Ix"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
