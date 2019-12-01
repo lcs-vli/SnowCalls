@@ -21,6 +21,7 @@
         }
         
         @IBAction func analyzeText(_ sender: Any) {
+            
             //clear out the ourput label from the last time
             outputReselt.text = ""
             
@@ -36,16 +37,18 @@
         
         func analyze(text: String){
             
-            var number = ""
-            
             // Chop up the input into individual lines
             let pieces = text.split(separator: "\n")
-
+            
             // Iterate over each line in the collection named "pieces"
             for piece in pieces {
                 
+                var number = ""
+                
                 //iterate over each character in the collection named "piece"
                 for character in piece{
+                    
+                    //convert every character, ignore - and other bad inputs
                     switch character {
                     case "A","B","C":
                         number += "2"
@@ -68,9 +71,29 @@
                     default:
                         number += ""
                     }
+                    
                 }
                 
+                //each line has more than 10 characters, if less than 10, skip the line
+                guard number.count >= 10 else{
+                    outputReselt.text += "\n"
+                    return
+                }
                 
+                //set the index for the first 10 numbers
+                let one = number.index(number.startIndex, offsetBy: 0)
+                let two = number.index(number.startIndex, offsetBy: 1)
+                let three = number.index(number.startIndex, offsetBy: 2)
+                let four = number.index(number.startIndex, offsetBy: 3)
+                let five = number.index(number.startIndex, offsetBy: 4)
+                let six = number.index(number.startIndex, offsetBy: 5)
+                let seven = number.index(number.startIndex, offsetBy: 6)
+                let eight = number.index(number.startIndex, offsetBy: 7)
+                let nine = number.index(number.startIndex, offsetBy: 8)
+                let ten = number.index(number.startIndex, offsetBy: 9)
+                
+                //print the number for every line
+                outputReselt.text += "\(number[one])\(number[two])\(number[three])-\(number[four])\(number[five])\(number[six])-\(number[seven])\(number[eight])\(number[nine])\(number[ten])\n"
             }
             
         }
