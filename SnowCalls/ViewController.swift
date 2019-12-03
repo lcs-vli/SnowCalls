@@ -74,27 +74,21 @@
                     
                 }
                 
-                //each line has more than 10 characters, if less than 10, skip the line
-                guard number.count >= 10 else{
-                    outputReselt.text += "\n"
-                    return
+                //add a dash after 3 and 7 characters
+                if number.count == 3 || number.count == 7{
+                    number += "-"
                 }
                 
-                //set the index for the first 10 numbers
-                let one = number.index(number.startIndex, offsetBy: 0)
-                let two = number.index(number.startIndex, offsetBy: 1)
-                let three = number.index(number.startIndex, offsetBy: 2)
-                let four = number.index(number.startIndex, offsetBy: 3)
-                let five = number.index(number.startIndex, offsetBy: 4)
-                let six = number.index(number.startIndex, offsetBy: 5)
-                let seven = number.index(number.startIndex, offsetBy: 6)
-                let eight = number.index(number.startIndex, offsetBy: 7)
-                let nine = number.index(number.startIndex, offsetBy: 8)
-                let ten = number.index(number.startIndex, offsetBy: 9)
+                //stop translating after 12 characters
+                if number.count == 12{
+                    //stop the loop
+                    break
+                }
                 
-                //print the number for every line
-                outputReselt.text += "\(number[one])\(number[two])\(number[three])-\(number[four])\(number[five])\(number[six])-\(number[seven])\(number[eight])\(number[nine])\(number[ten])\n"
+                //assign the new phone number to the outlet text
+                outputReselt.text += number
             }
+            
             
         }
         
